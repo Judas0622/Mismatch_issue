@@ -1,0 +1,492 @@
+  **warning** (C:\Users\shawnlio\Documents\NetBeansProjects\80BCD_5V_NOMS_Mismatch -ags - Copy2\model\5\mn_5_Mismatch_All.lib:293) Model mn_5 device geometries will not be checked against the limits set by lmin, lmax, wmin and wmax. To enable this check, add a period(.) to the model name(i.e. enable model selector).
+  **info** Monte Carlo simulation is detected, increase number of measure digits to 7 for Monte Carlo post processing.
+  **info** Starting with the 2021.09 relaease, the Monte Carlo data mining functionality has been merged with AVA based-post processing.
+  **info** option measform has been reset to 1 to reduce measure file storage and enable advanced Monte Carlo data mining.
+  **warning** pivtol too large ** reset to half minimum value of (gmindc,gmin)
+*** info *** index=1 is a nominal sample in Monte Carlo.
+*** info *** The MCG Random Number Generator and .Option Use_Agauss_Format = Yes are set as defaults starting with PrimeSim HSPICE L-2016.06 to address the needs of advanced technology nodes with large samples and/or large circuits, particularly for distributed processing.
+*** Should you want backward compatibility, please use the following options:
+For traditional Gaussian style variations, use .Option Random_Generator = 3LC;
+For Variation Block style variations, use .Option Random_Generator = MOA.
+******************************************************************************
+.LIB TT
+.PARAM
++dvth0_mn_5= 0             dlvth0_mn_5= 0            dwvth0_mn_5= 0           
++dpvth0_mn_5= 0            dpdiblc2_mn_5= 0          dlpdiblc2_mn_5= 0        
++dwpdiblc2_mn_5= 0         dppdiblc2_mn_5= 0         du0_mn_5= 0              
++dlu0_mn_5= 0              dwu0_mn_5= 0              dpu0_mn_5= 0             
++dua_mn_5= 0               dlua_mn_5= 0              dwua_mn_5= 0             
++dpua_mn_5= 0              deta0_mn_5= 0             dpeta0_mn_5= 0           
++dags_mn_5= 0              dlags_mn_5= 0             dwags_mn_5= 0            
++dpags_mn_5= 0             dvsat_mn_5= 0             dlvsat_mn_5= 0           
++dwvsat_mn_5= 0            dpvsat_mn_5= 0            dcit_mn_5= 0             
++dlcit_mn_5= 0             dwcit_mn_5= 0             dpcit_mn_5= 0            
++dvoff_mn_5= 0             dlvoff_mn_5= 0            dwvoff_mn_5= 0           
++dpvoff_mn_5= 0            dcgdo_mn_5= 0             dcgso_mn_5= 0            
++dcgdl_mn_5= 0             dcgsl_mn_5= 0             dcjs_mn_5= 0             
++dcjsws_mn_5= 0            dcjswgs_mn_5= 0           dcf_mn_5= 0              
++dcjd_mn_5= 0              dcjswd_mn_5= 0            dcjswgd_mn_5= 0          
++dtoxe_mn_5= 0             dxl_mn_5= 0               dxw_mn_5= 0              
+.LIB 'mn_5_Mismatch_All.lib' mn_5
+.ENDL TT
+
+.LIB FF
+.PARAM
++dvth0_mn_5= -0.0258       dlvth0_mn_5= -0.01946     dwvth0_mn_5= -0.00984    
++dpvth0_mn_5= 4.0E-5       dpdiblc2_mn_5= -2.2E-4    dlpdiblc2_mn_5= 1.7E-5   
++dwpdiblc2_mn_5= -6.8E-5   dppdiblc2_mn_5= -1.7E-5   du0_mn_5= 0              
++dlu0_mn_5= 0              dwu0_mn_5= 0              dpu0_mn_5= 0             
++dua_mn_5= -7.05E-11       dlua_mn_5= -1.301E-10     dwua_mn_5= -2.256E-11    
++dpua_mn_5= 1.4E-13        deta0_mn_5= 0             dpeta0_mn_5= 0           
++dags_mn_5= -5.0E-4        dlags_mn_5= 0             dwags_mn_5= 0.00127      
++dpags_mn_5= 0             dvsat_mn_5= 5000.0        dlvsat_mn_5= 1790.0      
++dwvsat_mn_5= 0            dpvsat_mn_5= 207.0        dcit_mn_5= 0             
++dlcit_mn_5= 0             dwcit_mn_5= 0             dpcit_mn_5= 0            
++dvoff_mn_5= 0             dlvoff_mn_5= 0            dwvoff_mn_5= 0           
++dpvoff_mn_5= 0            dcgdo_mn_5= 3.0E-12       dcgso_mn_5= 3.0E-12      
++dcgdl_mn_5= 2.0E-12       dcgsl_mn_5= 2.0E-12       dcjs_mn_5= -4.872E-5     
++dcjsws_mn_5= -6.914E-12   dcjswgs_mn_5= -1.043E-11  dcf_mn_5= 2.803E-12      
++dcjd_mn_5= -2.5E-5        dcjswd_mn_5= -2.5E-11     dcjswgd_mn_5= -2.5E-11   
++dtoxe_mn_5= -5.0E-10      dxl_mn_5= -5.0E-9         dxw_mn_5= 9.0E-9         
+.LIB 'mn_5_Mismatch_All.lib' mn_5
+.ENDL FF
+
+.LIB SS
+.PARAM
++dvth0_mn_5= 0.0258        dlvth0_mn_5= 0.01976      dwvth0_mn_5= 0.00934     
++dpvth0_mn_5= -1.10944E-4  dpdiblc2_mn_5= 2.46E-4    dlpdiblc2_mn_5= 4.8E-5   
++dwpdiblc2_mn_5= 9.6E-5    dppdiblc2_mn_5= 8.0E-6    du0_mn_5= 0              
++dlu0_mn_5= 0              dwu0_mn_5= 0              dpu0_mn_5= 0             
++dua_mn_5= 8.178E-11       dlua_mn_5= 1.758E-10      dwua_mn_5= 3.616E-11     
++dpua_mn_5= 1.62E-12       deta0_mn_5= 0             dpeta0_mn_5= 0           
++dags_mn_5= -0.001764      dlags_mn_5= 0             dwags_mn_5= -0.00269542  
++dpags_mn_5= 0             dvsat_mn_5= -5000.0       dlvsat_mn_5= -2540.0     
++dwvsat_mn_5= 0            dpvsat_mn_5= -497.141     dcit_mn_5= 0             
++dlcit_mn_5= 0             dwcit_mn_5= 0             dpcit_mn_5= 0            
++dvoff_mn_5= 0             dlvoff_mn_5= 0            dwvoff_mn_5= 0           
++dpvoff_mn_5= 0            dcgdo_mn_5= -3.0E-12      dcgso_mn_5= -3.0E-12     
++dcgdl_mn_5= -2.0E-12      dcgsl_mn_5= -2.0E-12      dcjs_mn_5= 4.872E-5      
++dcjsws_mn_5= 6.914E-12    dcjswgs_mn_5= 1.043E-11   dcf_mn_5= -2.803E-12     
++dcjd_mn_5= 2.5E-5         dcjswd_mn_5= 2.5E-11      dcjswgd_mn_5= 2.5E-11    
++dtoxe_mn_5= 5.0E-10       dxl_mn_5= 5.0E-9          dxw_mn_5= -9.0E-9        
+.LIB 'mn_5_Mismatch_All.lib' mn_5
+.ENDL SS
+
+.LIB FS
+.PARAM
++dvth0_mn_5= -0.01935      dlvth0_mn_5= -0.014595    dwvth0_mn_5= -0.00738    
++dpvth0_mn_5= 5.33904E-5   dpdiblc2_mn_5= -1.96E-4   dlpdiblc2_mn_5= 1.7E-5   
++dwpdiblc2_mn_5= -4.8E-5   dppdiblc2_mn_5= -1.1E-5   du0_mn_5= 0              
++dlu0_mn_5= 0              dwu0_mn_5= 0              dpu0_mn_5= 0             
++dua_mn_5= -5.4135E-11     dlua_mn_5= -1.00875E-10   dwua_mn_5= -1.786E-11    
++dpua_mn_5= -3.3E-14       deta0_mn_5= 0             dpeta0_mn_5= 0           
++dags_mn_5= -2.85E-4       dlags_mn_5= 0             dwags_mn_5= 0.0010525    
++dpags_mn_5= 0             dvsat_mn_5= 3750.0        dlvsat_mn_5= 1402.5      
++dwvsat_mn_5= 0            dpvsat_mn_5= 180.45       dcit_mn_5= 0             
++dlcit_mn_5= 0             dwcit_mn_5= 0             dpcit_mn_5= 0            
++dvoff_mn_5= 0             dlvoff_mn_5= 0            dwvoff_mn_5= 0           
++dpvoff_mn_5= 0            dcgdo_mn_5= 1.5E-12       dcgso_mn_5= 1.5E-12      
++dcgdl_mn_5= 1.0E-12       dcgsl_mn_5= 1.0E-12       dcjs_mn_5= -2.436E-5     
++dcjsws_mn_5= -3.457E-12   dcjswgs_mn_5= -5.213E-12  dcf_mn_5= 1.402E-12      
++dcjd_mn_5= -1.25E-5       dcjswd_mn_5= -1.25E-11    dcjswgd_mn_5= -1.25E-11  
++dtoxe_mn_5= -3.75E-10     dxl_mn_5= -3.75E-9        dxw_mn_5= 6.75E-9        
+.LIB 'mn_5_Mismatch_All.lib' mn_5
+.ENDL FS
+
+.LIB SF
+.PARAM
++dvth0_mn_5= 0.01935       dlvth0_mn_5= 0.014695     dwvth0_mn_5= 0.00703     
++dpvth0_mn_5= -7.82295E-5  dpdiblc2_mn_5= 1.68E-4    dlpdiblc2_mn_5= 1.0E-5   
++dwpdiblc2_mn_5= 6.4E-5    dppdiblc2_mn_5= 8.0E-6    du0_mn_5= 0              
++dlu0_mn_5= 0              dwu0_mn_5= 0              dpu0_mn_5= 0             
++dua_mn_5= 6.11012E-11     dlua_mn_5= 1.26179E-10    dwua_mn_5= 2.53147E-11   
++dpua_mn_5= 1.06063E-12    deta0_mn_5= 0             dpeta0_mn_5= 0           
++dags_mn_5= -9.656E-4      dlags_mn_5= 0             dwags_mn_5= -0.00186739  
++dpags_mn_5= 0             dvsat_mn_5= -3750.0       dlvsat_mn_5= -1826.67    
++dwvsat_mn_5= 0            dpvsat_mn_5= -344.285     dcit_mn_5= 0             
++dlcit_mn_5= 0             dwcit_mn_5= 0             dpcit_mn_5= 0            
++dvoff_mn_5= 0             dlvoff_mn_5= 0            dwvoff_mn_5= 0           
++dpvoff_mn_5= 0            dcgdo_mn_5= -1.5E-12      dcgso_mn_5= -1.5E-12     
++dcgdl_mn_5= -1.0E-12      dcgsl_mn_5= -1.0E-12      dcjs_mn_5= 2.436E-5      
++dcjsws_mn_5= 3.457E-12    dcjswgs_mn_5= 5.213E-12   dcf_mn_5= -1.402E-12     
++dcjd_mn_5= 1.25E-5        dcjswd_mn_5= 1.25E-11     dcjswgd_mn_5= 1.25E-11   
++dtoxe_mn_5= 3.75E-10      dxl_mn_5= 3.75E-9         dxw_mn_5= -6.75E-9       
+.LIB 'mn_5_Mismatch_All.lib' mn_5
+.ENDL SF
+
+.LIB mn_5
+.PARAM
++sigma_mis_toxe= agauss(0,3,3)
++sigma_mis_xl= agauss(0,3,3)
++sigma_mis_xw= agauss(0,3,3)
++sigma_mis_vth0= agauss(0,3,3)
++sigma_mis_u0= agauss(0,3,3)
++sigma_mis_voff= agauss(0,3,3)
++sigma_mis_ags= agauss(0,3,3)
+.subckt mn_5 d g s b 
++l=1.0e-6 
++w=1.0e-6 
++ad=0.0 
++as=0.0 
++pd=0.0 
++ps=0.0 
++nrd=0.0 
++nrs=0.0 
++rdc=0.0 
++rsc=0.0 
++sa=3e-6 
++sb=3e-6 
++sd=0.0 
++sca=0.0 
++scb=0.0 
++scc=0.0 
++sc=0.0 
++nf=1.0 
++simM=1.0 
++scale=1.0 
++dtemp=0 
+.PARAM
++mismod  = 1.0             
++lef0    = min(lef,10e-6) 
++avth0_mis_A= 3.401E-7     avth0_mis_B= -5960000.0   avth0_mis_C= 8.89E-11    
++avth0_mis_ldep_eq= 'avth0_mis_A*exp(avth0_mis_B*lef0) + avth0_mis_C'
++au0_mis_A= 1.614e-13     au0_mis_B= -5.298e-01        
+*+au0_mis_ldep_eq= 'au0_mis_A* POW(abs(LEF0),au0_mis_B)'
++au0_mis_ldep_eq= 'au0_mis_A* exp(au0_mis_B*ln(lef0))'
++aags_mis_A= 1.51E-8       aags_mis_B= -814000.0     aags_mis_C= 4.37E-9      
++aags_mis_ldep_eq= 'aags_mis_A*exp(aags_mis_B*lef0) + aags_mis_C'
++geo_fac = '1/sqrt(wef*lef0*nf)'
++atoxe_mn_5= 1.48351E-16   
++dtoxe_mn_5_mis= '0+atoxe_mn_5*geo_fac*sigma_mis_toxe*mismod'
++axl_mn_5= 6.81287E-17     
++dxl_mn_5_mis= '0+axl_mn_5*geo_fac*sigma_mis_xl*mismod'
++axw_mn_5= 1.37907E-16     
++dxw_mn_5_mis= '0+axw_mn_5*geo_fac*sigma_mis_xw*mismod'
++avth0_mn_5= 'avth0_mis_ldep_eq'
++dvth0_mn_5_mis= '0+avth0_mn_5*geo_fac*sigma_mis_vth0*mismod'
++au0_mn_5= 'au0_mis_A* POW(lef,au0_mis_B)'
++du0_mn_5_mis= '0+au0_mn_5*geo_fac*sigma_mis_u0*mismod'
++avoff_mn_5= 3.26647E-9    
++dvoff_mn_5_mis= '0+avoff_mn_5*geo_fac*sigma_mis_voff*mismod'
++aags_mn_5= 'aags_mis_ldep_eq'
++dags_mn_5_mis= '0+aags_mn_5*geo_fac*sigma_mis_ags*mismod'
+.PARAM
++r_cont_flag= 1.0          r_cont  = 25.0            rsh     = 8.0            
+.PARAM
++xwr     = '2.29e-8/scale '
++dmcg    = '1.90E-07/scale'
++dmci    = '1.14E-07/scale'
++weffcj  = 'w/nf+(xwr)'   
++nf_odd  = 'nf-2*int(nf/2)'
++nf_even = '1-nf_odd'     
++a_unit  = 'sd*weffcj'    
++p_unit  = '2*(sd+weffcj)'
++a_sa_edge= '(dmcg+dmci)*weffcj'
++p_sa_edge= '2*((dmcg+dmci)+weffcj)'
++a_sb_edge= '(dmcg+dmci)*weffcj'
++p_sb_edge= '2*((dmcg+dmci)+weffcj)'
++ad      = 'nf_odd*(a_unit*((nf+1)/2-1)+a_sb_edge)+nf_even*(a_unit*nf/2)'
++as      = 'nf_odd*(a_unit*((nf+1)/2-1)+a_sa_edge)+nf_even*(a_unit*(nf/2-1)+a_sa_edge+a_sb_edge)'
++pd      = 'nf_odd*(p_unit*((nf+1)/2-1)+p_sb_edge)+nf_even*(p_unit*nf/2)'
++ps      = 'nf_odd*(p_unit*((nf+1)/2-1)+p_sa_edge)+nf_even*(p_unit*(nf/2-1)+p_sa_edge+p_sb_edge)'
++cont_sti= '0.18e-6/scale'
++cont_size= '0.12e-6/scale'
++cont_cont= '0.16e-6/scale'
++cont_num= 'max(int(((w/nf-cont_sti*2-cont_size)/(cont_size+cont_cont))+1),1)'
++nrdcon  = 'r_cont/cont_num/rsh'
++nrscon  = 'r_cont/cont_num/rsh'
++nrd     = 'dmcg/weffcj/nf+nrdcon*r_cont_flag'
++nrs     = 'dmcg/weffcj/nf+nrscon*r_cont_flag'
++lef     = 'l*scale'      
++wef     = 'w*scale/nf'   
+.PARAM
++saref   = '3.0000E-06 /scale'
++sbref   = '3.0000E-06 /scale'
++saflag  = '(sa > saref)? 1:0'
++sbflag  = '(sb > sbref)? 1:0'
++kvth0_large_lod= -3.3E-8  
++kvth0_lsa= '1/2*kvth0_large_lod'
++kvth0_lsb= '1/2*kvth0_large_lod'
++kvth0_small_lod= 'kvth0_large_lod'
++kvth0_ssa= '1/2*kvth0_small_lod'
++kvth0_ssb= '1/2*kvth0_small_lod'
++lkvth0_large_lod= 1.27E-14 
++lkvth0_lsa= '1/2*lkvth0_large_lod'
++lkvth0_lsb= '1/2*lkvth0_large_lod'
++lkvth0_small_lod= 'lkvth0_large_lod'
++lkvth0_ssa= '1/2*lkvth0_small_lod'
++lkvth0_ssb= '1/2*lkvth0_small_lod'
++wkvth0_large_lod= 8.0E-15  
++wkvth0_lsa= '1/2*wkvth0_large_lod'
++wkvth0_lsb= '1/2*wkvth0_large_lod'
++wkvth0_small_lod= 'wkvth0_large_lod'
++wkvth0_ssa= '1/2*wkvth0_small_lod'
++wkvth0_ssb= '1/2*wkvth0_small_lod'
++pkvth0_large_lod= -3.04841E-21 
++pkvth0_lsa= '1/2*pkvth0_large_lod'
++pkvth0_lsb= '1/2*pkvth0_large_lod'
++pkvth0_small_lod= 'pkvth0_large_lod'
++pkvth0_ssa= '1/2*pkvth0_small_lod'
++pkvth0_ssb= '1/2*pkvth0_small_lod'
++steta0_large_lod= 0        
++steta0_lsa= '1/2*steta0_large_lod'
++steta0_lsb= '1/2*steta0_large_lod'
++steta0_small_lod= 'steta0_large_lod'
++steta0_ssa= '1/2*steta0_small_lod'
++steta0_ssb= '1/2*steta0_small_lod'
++psteta0_large_lod= 0        
++psteta0_lsa= '1/2*psteta0_large_lod'
++psteta0_lsb= '1/2*psteta0_large_lod'
++psteta0_small_lod= 'psteta0_large_lod'
++psteta0_ssa= '1/2*psteta0_small_lod'
++psteta0_ssb= '1/2*psteta0_small_lod'
++ku0_large_lod= -7.14907E-8 
++ku0_lsa = '1/2*ku0_large_lod'
++ku0_lsb = '1/2*ku0_large_lod'
++ku0_small_lod= 'ku0_large_lod'
++ku0_ssa = '1/2*ku0_small_lod'
++ku0_ssb = '1/2*ku0_small_lod'
++lku0_large_lod= 2.72573E-14 
++lku0_lsa= '1/2*lku0_large_lod'
++lku0_lsb= '1/2*lku0_large_lod'
++lku0_small_lod= 'lku0_large_lod'
++lku0_ssa= '1/2*lku0_small_lod'
++lku0_ssb= '1/2*lku0_small_lod'
++wku0_large_lod= 8.0E-15   
++wku0_lsa= '1/2*wku0_large_lod'
++wku0_lsb= '1/2*wku0_large_lod'
++wku0_small_lod= 'wku0_large_lod'
++wku0_ssa= '1/2*wku0_small_lod'
++wku0_ssb= '1/2*wku0_small_lod'
++pku0_large_lod= -3.21561E-21 
++pku0_lsa= '1/2*pku0_large_lod'
++pku0_lsb= '1/2*pku0_large_lod'
++pku0_small_lod= 'pku0_large_lod'
++pku0_ssa= '1/2*pku0_small_lod'
++pku0_ssb= '1/2*pku0_small_lod'
++kvsat_large_lod= 0.70344  
++kvsat_lsa= '1/2*kvsat_large_lod'
++kvsat_lsb= '1/2*kvsat_large_lod'
++kvsat_small_lod= 'kvsat_large_lod'
++kvsat_ssa= '1/2*kvsat_small_lod'
++kvsat_ssb= '1/2*kvsat_small_lod'
++kvth0_sa_mn_5= '(kvth0_lsa+lkvth0_lsa/lef+wkvth0_lsa/wef+pkvth0_lsa/(lef*wef))*saflag+(kvth0_ssa+lkvth0_ssa/lef+wkvth0_ssa/wef+pkvth0_ssa/(lef*wef))*(1-saflag)'
++kvth0_sb_mn_5= '(kvth0_lsb+lkvth0_lsb/lef+wkvth0_lsb/wef+pkvth0_lsb/(lef*wef))*sbflag+(kvth0_ssb+lkvth0_ssb/lef+wkvth0_ssb/wef+pkvth0_ssb/(lef*wef))*(1-sbflag)'
++ku0_sa_mn_5= '(ku0_lsa+lku0_lsa/lef+wku0_lsa/wef+pku0_lsa/(lef*wef))*saflag+(ku0_ssa+lku0_ssa/lef+wku0_ssa/wef+pku0_ssa/(lef*wef))*(1-saflag)'
++ku0_sb_mn_5= '(ku0_lsb+lku0_lsb/lef+wku0_lsb/wef+pku0_lsb/(lef*wef))*sbflag+(ku0_ssb+lku0_ssb/lef+wku0_ssb/wef+pku0_ssb/(lef*wef))*(1-sbflag)'
++steta0_sa_mn_5= '(steta0_lsa+psteta0_lsa/(lef*wef))*saflag+(steta0_ssa+psteta0_ssa/(lef*wef))*(1-saflag)'
++steta0_sb_mn_5= '(steta0_lsb+psteta0_lsb/(lef*wef))*sbflag+(steta0_ssb+psteta0_ssb/(lef*wef))*(1-sbflag)'
++kvsat_sa_mn_5= 'kvsat_lsa*saflag+kvsat_ssa*(1-saflag)'
++kvsat_sb_mn_5= 'kvsat_lsb*sbflag+kvsat_ssb*(1-sbflag)'
+.PARAM
++noise_mc_flag_mv= 0        random_fn_mv= 1.0         noiseflag_mv= 0          
++sigma_factor_noise_mv= 1.0     
+.PARAM
++par1fn_mc_mv= random_fn_mv
++wref_noi= 1.0E-5          lref_noi= 9.0E-8          
++lef_noi = 'l*scale'      
++wef_noi = 'w*scale/nf'   
++knoia   = 4.24E41         knoib   = 2.6E25          knoic   = 1.0E7          
++k_noi   = 8.0             z_noi   = 0.85            j_noi   = 1.05           
++corner_ratio= 'sigma_factor_noise_mv*(log(k_noi)-min(0,z_noi*log(((wef_noi*lef_noi*nf)/(lref_noi*wref_noi*nf))**0.5)))'
++noia_mn_5= 'knoia*(2.718**((noise_mc_flag_mv*par1fn_mc_mv+(1-noise_mc_flag_mv)*noiseflag_mv)*corner_ratio))'
++noib_mn_5= 'knoib*(2.718**((noise_mc_flag_mv*par1fn_mc_mv+(1-noise_mc_flag_mv)*noiseflag_mv)*corner_ratio/j_noi))'
++noic_mn_5= 'knoic*(2.718**((noise_mc_flag_mv*par1fn_mc_mv+(1-noise_mc_flag_mv)*noiseflag_mv)*corner_ratio/(j_noi*j_noi)))'
+.PARAM
++vth0_hyper= 'a1_vth0*l/cosh(b1_vth0*(w-c1_vth0))+a2_vth0/cosh(b2_vth0*(w-c2_vth0))'
++a1_vth0 = 2200.0          b1_vth0 = 500000.0        c1_vth0 = 9.0E-7         
++a2_vth0 = 0               b2_vth0 = 6000000.0       c2_vth0 = 1.86E-7        
+m1 d g s b mn_5 l = l w = w ad = ad as = as pd = pd ps = ps nrd = nrd nrs = nrs rdc = rdc rsc = rsc sa = sa sb = sb sd = sd sca = sca scb = scb scc = scc sc = sc nf = nf m = simM 
+.MODEL mn_5 nmos
+****************************************************************
+*                        Model selector
+****************************************************************
++level   = 54.0            version = 4.62            binunit = 1.0            
++paramchk= 1.0             mobmod  = 0               mtrlmod = 0              
++capmod  = 2.0             cvchargemod= 0            rdsmod  = 0              
++igcmod  = 0               igbmod  = 0               rbodymod= 0              
++trnqsmod= 0               acnqsmod= 0               diomod  = 1.0            
++tempmod = 0               permod  = 1.0             geomod  = 0              
++rgeomod = 1.0             rgatemod= 0               wpemod  = 1.0            
++fnoimod = 1.0             tnoimod = 1.0             xpart   = 1.0            
+
+****************************************************************
+*                       Process Parameter
+****************************************************************
++epsrox  = 3.9             toxe    = '1.353E-8 + dtoxe_mn_5+dtoxe_mn_5_mis' toxp    = '1.3255E-8 + dtoxe_mn_5'
++toxm    = 1.353E-8        toxref  = '1.353E-8 + dtoxe_mn_5' xj      = 1.5E-7         
++ndep    = 1.5E17          ngate   = 2.0E20          nsd     = 1.0E20         
++rsh     = 8.0             rshg    = 0              
+
+****************************************************************
+*                      dW and dL Parameter
+****************************************************************
++wint    = 7.47E-8         wl      = -4.0E-15        wln     = 1.0            
++ww      = -9.6E-15        wwn     = 1.0             wwl     = 1.5E-21        
++lint    = 7.0E-8          ll      = 0               lln     = 1.0            
++lw      = -2.34E-14       lwn     = 1.0             lwl     = 1.071E-20      
++llc     = 0               lwc     = 0               lwlc    = 0              
++wlc     = 0               wwc     = 0               wwlc    = 0              
++dwg     = -2.4E-9         dwb     = 2.0E-9          xl      = '-3.8E-8 + dxl_mn_5+dxl_mn_5_mis'
++xw      = '3.3E-8 + dxw_mn_5+dxw_mn_5_mis' dlc     = 1.07E-8         dwc     = 0              
++lmin    = 6.0E-7          lmax    = 5.0001E-5       wmin    = 3.0E-7         
++wmax    = 5.0001E-4       dlcig   = 0              
+
+****************************************************************
+*                    Basic Model Parameters
+****************************************************************
++vth0    = '0.8037+vth0_hyper + dvth0_mn_5+dvth0_mn_5_mis' lvth0   = '0.00862 + dlvth0_mn_5' wvth0   = '0.004105 + dwvth0_mn_5'
++pvth0   = '-0.0440725 + dpvth0_mn_5' vfb     = -1.0            phin    = 0.08           
++k1      = 0.859           k2      = 0.0354          lk2     = -0.01548       
++wk2     = 0.002184        pk2     = -0.00859        k3      = -11.55         
++lk3     = -1.05           wk3     = -1.15           pk3     = 0.8568         
++k3b     = 0               wk3b    = 0.9             w0      = 8.0E-7         
++lpe0    = 2.74E-7         llpe0   = -7.35E-8        wlpe0   = 1.09943E-8     
++plpe0   = 2.2956E-9       lpeb    = 5.2E-8          llpeb   = -1.6E-8        
++wlpeb   = 1.92E-8         plpeb   = -9.6E-9         dvtp0   = 1.8E-6         
++dvtp1   = 0               dvt0    = 2.2             ldvt0   = 1.0            
++wdvt0   = 0               pdvt0   = -0.3            dvt1    = 0.43           
++dvt2    = -0.032          dvt0w   = -2.5575E-5      ldvt0w  = 0              
++wdvt0w  = 0               pdvt0w  = 0               dvt1w   = 2300.0         
++dvt2w   = -0.002          u0      = '0.0471 + du0_mn_5+du0_mn_5_mis' lu0     = '7.56E-4 + dlu0_mn_5'
++wu0     = '0.0013 + dwu0_mn_5' pu0     = '0.00374965 + dpu0_mn_5' ua      = '-2.0E-11 + dua_mn_5'
++lua     = '9.5E-11 + dlua_mn_5' wua     = '1.05E-10 + dwua_mn_5' pua     = '3.776081E-10 + dpua_mn_5'
++ub      = 2.243E-18       lub     = -7.94E-20       wub     = -6.76753E-20   
++pub     = -6.1228E-19     uc      = 7.55E-11        luc     = 1.512E-11      
++wuc     = 8.73E-12        puc     = -8.4E-13        vsat    = '112150.0 + dvsat_mn_5'
++lvsat   = '-14960.0 + dlvsat_mn_5' wvsat   = '3600.0 + dwvsat_mn_5' pvsat   = '2046.0 + dpvsat_mn_5'
++a0      = 1.13            la0     = -0.6            pa0     = -0.0589        
++ags     = '0.16388 + dags_mn_5+dags_mn_5_mis' lags    = '-0.265 + dlags_mn_5' wags    = '-0.0046785 + dwags_mn_5'
++pags    = '0.0830025 + dpags_mn_5' b0      = 1.9E-8          wb0     = 0              
++b1      = 0               keta    = -0.0065         lketa   = -0.01475       
++wketa   = 2.8E-4          pketa   = 0.0029575       a1      = 0              
++la1     = -0.016          pa1     = 9.0E-4          a2      = 1.0            
++voff    = '-0.147 + dvoff_mn_5+dvoff_mn_5_mis' lvoff   = '-0.031 + dlvoff_mn_5' wvoff   = '3.0E-4 + dwvoff_mn_5'
++pvoff   = '0.00475 + dpvoff_mn_5' voffl   = -7.0E-9         minv    = -0.4           
++lminv   = 0.178           wminv   = -0.03           pminv   = -0.045         
++nfactor = 1.0             eta0    = '0.19205 + deta0_mn_5' leta0   = -0.022995      
++weta0   = -0.02           peta0   = '5.2E-4 + dpeta0_mn_5' etab    = -0.492         
++dsub    = 0.56            cit     = '5.0E-4 + dcit_mn_5' lcit    = '-1.0E-4 + dlcit_mn_5'
++wcit    = '-1.01E-4 + dwcit_mn_5' pcit    = '3.0E-5 + dpcit_mn_5' cdsc    = 2.4E-4         
++cdscb   = 0               cdscd   = 0               pclm    = 0.2            
++pdiblc1 = 0.13            pdiblc2 = '0.0016975 + dpdiblc2_mn_5' lpdiblc2= '0 + dlpdiblc2_mn_5'
++wpdiblc2= '1.18E-4 + dwpdiblc2_mn_5' ppdiblc2= '0 + dppdiblc2_mn_5' pdiblcb = 0              
++drout   = 0.56            pscbe1  = 4.24E8          pscbe2  = 1.0E-8         
++pvag    = 0               delta   = 0.01            fprout  = 0              
++pdits   = 0               pditsl  = 0               pditsd  = 0              
++lambda  = 0               vtl     = 0               lc      = 5.0E-9         
++xn      = 3.0            
+
+****************************************************************
+*    Parameters for Asymmetric and Bias-Dependent Rds Model
+****************************************************************
++rdsw    = 530.0           wrdsw   = 50.0            rdswmin = 0              
++rdw     = 100.0           rdwmin  = 0               rsw     = 100.0          
++rswmin  = 0               prwb    = 0               prwg    = 0              
++wr      = 1.0            
+
+****************************************************************
+*          Impact Ionization Current Model Parameters
+****************************************************************
++alpha0  = 4.4075E-5       alpha1  = 7.645           walpha1 = -0.53          
++palpha1 = 0.349           beta0   = 32.05           lbeta0  = 3.6            
+
+****************************************************************
+*               Gate Dielectric Tunneling Current
+****************************************************************
++aigbacc = 0.1136          bigbacc = 0.00171         cigbacc = 0.075          
++nigbacc = 1.0             aigbinv = 0.1111          bigbinv = 9.49E-4        
++cigbinv = 0.006           eigbinv = 1.1             nigbinv = 3.0            
++aigc    = 0.1136          bigc    = 0.00171         cigc    = 0.075          
++aigsd   = 0.1136          bigsd   = 0.00171         cigsd   = 0.075          
++nigc    = 1.0             poxedge = 1.0             pigcd   = 1.0            
++ntox    = 1.0            
+
+****************************************************************
+*                    GIDL Effect Parameters
+****************************************************************
++agidl   = 0               wagidl  = 1.0E-7          bgidl   = 2.3E9          
++cgidl   = 0.5             egidl   = 0.8             wegidl  = 0              
+
+****************************************************************
+*          Flicker and Thermal Noise Model Parameters
+****************************************************************
++noia    = 'noia_mn_5'     noib    = 'noib_mn_5'     noic    = 'noic_mn_5'    
++em      = 4.1E7           ef      = 0.95            lintnoi = -1.0E-7        
++ntnoi   = 1.0            
+
+****************************************************************
+*                     Capacitance Parameter
+****************************************************************
++cgso    = '6.0E-11 + dcgso_mn_5' cgdo    = '6.0E-11 + dcgdo_mn_5' cgbo    = 0              
++ckappas = 0.6             ckappad = 0.6             cf      = '5.606E-11 + dcf_mn_5'
++clc     = 1.0E-7          cle     = 0.6             noff    = 1.9            
++lnoff   = 0.9             wnoff   = 0               voffcv  = -0.095         
++lvoffcv = -0.09           wvoffcv = 0               pvoffcv = 0              
++acde    = 0.4             moin    = 5.0             cgsl    = '4.0E-11 + dcgsl_mn_5'
++cgdl    = '4.0E-11 + dcgdl_mn_5'
+
+****************************************************************
+*          Souce/Drain Junction Diode Model Parameter
+****************************************************************
++ijthsrev= 0.1             ijthsfwd= 0.1             xjbvs   = 1.0            
++bvs     = 10.026          jss     = 1.68443E-7      jsws    = 8.77171E-14    
++jswgs   = 0               cjs     = '9.7443E-4 + dcjs_mn_5' cjd     = '0.0005 + dcjd_mn_5'
++cjsws   = '1.3827E-10 + dcjsws_mn_5' cjswd   = '5e-010 + dcjswd_mn_5' cjswgs  = '2.0851E-10 + dcjswgs_mn_5'
++cjswgd  = '5e-010 + dcjswgd_mn_5' mjs     = 0.3256          mjsws   = 0.066926       
++mjswgs  = 0.48477         pbs     = 0.71117         pbsws   = 0.29739        
++pbswgs  = 0.9331          njs     = 1.0161          jtsswgs = 2.14E-9        
++jtsswgd = 1.344E-8        njtsswg = 27.0            xtsswgs = 0.59           
++vtsswgs = 0.11            vtsswgd = 0.11            tnjtsswg= -0.71          
+
+****************************************************************
+*          Layout-Dependent Parasitics Model Parameter
+****************************************************************
++dmcg    = 1.9E-7          dmci    = 1.14E-7         dmdg    = 0              
++dmcgt   = 0               xgw     = 0               xgl     = 0              
++ngcon   = 1.0            
+
+****************************************************************
+*                  RF Model Related Parameter
+****************************************************************
++xrcrg1  = 12.0            xrcrg2  = 1.0             rbpb    = 50.0           
++rbpd    = 50.0            rbps    = 50.0            rbdb    = 50.0           
++rbsb    = 50.0            gbmin   = 1.0E-12        
+
+****************************************************************
+*                    Temperature coefficient
+****************************************************************
++tnom    = 25.0            ute     = -1.508          lute    = -0.0196        
++wute    = 0.091           pute    = -0.0031         kt1     = -0.41          
++lkt1    = 0.01            wkt1    = 0.015           pkt1    = 0.0018         
++kt1l    = -3.0E-8         kt2     = -0.066          ua1     = 1.64E-9        
++pua1    = 1.3E-10         ub1     = -2.61E-18       wub1    = 2.0E-19        
++pub1    = 7.9E-20         uc1     = -6.7E-11        puc1    = 1.5008E-11     
++at      = 27000.0         wat     = 3050.0          pat     = -1090.0        
++prt     = 0               tvoff   = 0.0013          ltvoff  = -3.4E-4        
++ptvoff  = 2.0E-4          tpb     = 0.0011932       tpbsw   = 4.3214E-4      
++tpbswg  = 0.0016279       tcj     = 8.9278E-4       tcjsw   = 2.4103E-4      
++tcjswg  = 0.0012255       xtis    = 3.0            
+
+****************************************************************
+*                Stress Effect Related Parameter
+****************************************************************
++saref   = 3.0E-6          sbref   = 3.0E-6          ku0     = 'ku0_sa_mn_5+ku0_sb_mn_5'
++kvsat   = 'kvsat_sa_mn_5+kvsat_sb_mn_5' kvth0   = 'kvth0_sa_mn_5+kvth0_sb_mn_5' steta0  = 'steta0_sa_mn_5+steta0_sb_mn_5'
+
+****************************************************************
+*            Well Proximity Effect Model Parameters
+****************************************************************
++web     = 0               wec     = 0               kvth0we = 0.0088         
++lkvth0we= 3.0E-5          wkvth0we= -6.5E-4         pkvth0we= 7.62E-5        
++k2we    = 0               ku0we   = -0.0011         lku0we  = -0.0011        
++wku0we  = -7.0E-6         pku0we  = -8.5E-5         scref   = 2.0E-6         
+
+****************************************************************
+*                            Others
+****************************************************************
++vgs_max = 5.5             vgb_max = 5.5             vds_max = 5.5            
++vbs_max = 5.5             vbd_max = 5.5            
+.ends mn_5
+.ENDL mn_5
+
