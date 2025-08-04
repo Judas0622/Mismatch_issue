@@ -1,0 +1,32 @@
+* geometry scaling
+.param lef0 = min(lef, 10e-6)
+.param geo_fac = 1 / sqrt(wef * lef0 * nf)
+
+* mismatch randoms
+.param sigma_mis_toxe = agauss(0, 3, 3)
+.param sigma_mis_xl   = agauss(0, 3, 3)
+.param sigma_mis_xw   = agauss(0, 3, 3)
+.param sigma_mis_vth0 = agauss(0, 3, 3)
+.param sigma_mis_u0   = agauss(0, 3, 3)
+.param sigma_mis_voff = agauss(0, 3, 3)
+.param sigma_mis_ags  = agauss(0, 3, 3)
+
+* toxe mismatch
+.param dtoxe_mn_5_mis = '1.48351E-16 * geo_fac * sigma_mis_toxe * mismod'
+
+* L/W mismatch
+.param dxl_mn_5_mis   = '6.81287E-17 * geo_fac * sigma_mis_xl * mismod'
+.param dxw_mn_5_mis   = '1.37907E-16 * geo_fac * sigma_mis_xw * mismod'
+
+* Vth0 mismatch with L dependence
+.param duvth0_mis = '3.401E-7 * exp(-5.96e6 * lef0) + 8.89E-11'
+.param dvth0_mn_5_mis = 'duvth0_mis * geo_fac * sigma_mis_vth0 * mismod'
+
+* U0 mismatch with L dependence (exp form)
+.param du0_mn_5_mis = '1.614E-13 * exp(-0.5298 * ln(lef0)) * geo_fac * sigma_mis_u0 * mismod'
+
+* Voff mismatch
+.param dvoff_mn_5_mis = '3.26647E-9 * geo_fac * sigma_mis_voff * mismod'
+
+* AGS mismatch with L dependence
+.param dags_mn_5_mis = '(1.51E-8 * exp(-814000.0 * lef0) + 4.37E-9) * geo_fac * sigma_mis_ags * mismod'
