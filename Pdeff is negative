@@ -1,0 +1,20 @@
++dtoxe_mn_ld_24_iso_5t= -1.0E-9   dxl_mn_ld_24_iso_5t= -5.0E-9     dxw_mn_ld_24_iso_5t= 9.0E-9     
++dcgdo_mn_ld_24_iso_5t= 1.1E-11   dcgso_mn_ld_24_iso_5t= 5.0E-14   dcgdl_mn_ld_24_iso_5t= 5.0E-13  
++dcgsl_mn_ld_24_iso_5t= 5.0E-14   dcjs_mn_ld_24_iso_5t= -2.815E-5  dcjd_mn_ld_24_iso_5t= -2.815E-5 
++dcjsws_mn_ld_24_iso_5t= -7.5E-12 dcjswd_mn_ld_24_iso_5t= -7.5E-12 dcjswgs_mn_ld_24_iso_5t= -5.0E-14
++dcjswgd_mn_ld_24_iso_5t= -5.0E-14 dcf_mn_ld_24_iso_5t= 2.439E-12   dvth0_mn_ld_24_iso_5t= -0.2512  
++dlvth0_mn_ld_24_iso_5t= 0        dwvth0_mn_ld_24_iso_5t= -0.0108  dpvth0_mn_ld_24_iso_5t= 0       
++dpdiblc2_mn_ld_24_iso_5t= 0        dlpdiblc2_mn_ld_24_iso_5t= 0        dwpdiblc2_mn_ld_24_iso_5t= 0       
++dppdiblc2_mn_ld_24_iso_5t= 0        du0_mn_ld_24_iso_5t= 0           dlu0_mn_ld_24_iso_5t= 0         
++dwu0_mn_ld_24_iso_5t= 0          dpu0_mn_ld_24_iso_5t= 0          dua_mn_ld_24_iso_5t= 0          
++dlua_mn_ld_24_iso_5t= 0          dwua_mn_ld_24_iso_5t= 0          dpua_mn_ld_24_iso_5t= 0         
++deta_mn_ld_24_iso_5t= 0         dpeta_mn_ld_24_iso_5t= 0        dags_mn_ld_24_iso_5t= 0         
++dlags_mn_ld_24_iso_5t= 0         dwags_mn_ld_24_iso_5t= 0         dpags_mn_ld_24_iso_5t= 0        
++dvsat_mn_ld_24_iso_5t= 19000.0   dlvsat_mn_ld_24_iso_5t= 0        dwvsat_mn_ld_24_iso_5t= -51000.0
++dpvsat_mn_ld_24_iso_5t= 0        dcit_mn_ld_24_iso_5t= 0          dlcit_mn_ld_24_iso_5t= 0        
++dwcit_mn_ld_24_iso_5t= 0         dpcit_mn_ld_24_iso_5t= 0         dvoff_mn_ld_24_iso_5t= 0        
++dlvoff_mn_ld_24_iso_5t= 0        dwvoff_mn_ld_24_iso_5t= 0        dpvoff_mn_ld_24_iso_5t= 0       
++df_value_mn_ld_24_iso_5t= -6.59E-18 da_value_mn_ld_24_iso_5t= -5.51E-18 db_value_mn_ld_24_iso_5t= -1.15E-14
++dc_value_mn_ld_24_iso_5t= -5.29E-18 dd_value_mn_ld_24_iso_5t= -1.54E-14 de_value_mn_ld_24_iso_5t= -5.08E-18
++dub_mn_ld_24_iso_5t= 2.6E-19  dwub_mn_ld_24_iso_5t= 6.8E-18    drth0_mn_ld_24_iso_5t= -20.8    
++drth0w_mn_ld_24_iso_5t= -8.6E-4  dwat_mn_ld_24_iso_5t= -18200.0 
