@@ -18,3 +18,37 @@
 +dc_value_mn_ld_24_iso_5t= -5.29E-18 dd_value_mn_ld_24_iso_5t= -1.54E-14 de_value_mn_ld_24_iso_5t= -5.08E-18
 +dub_mn_ld_24_iso_5t= 2.6E-19  dwub_mn_ld_24_iso_5t= 6.8E-18    drth0_mn_ld_24_iso_5t= -20.8    
 +drth0w_mn_ld_24_iso_5t= -8.6E-4  dwat_mn_ld_24_iso_5t= -18200.0 
+****************************
+
+
+.subckt mn_ld_24_iso_5t d g bs nbl sub 
++w=1E-6  l=1E-6  ad=0 
++as=0  pd=0  ps=0 
++nrd=0  nrs=0  rdc=0 
++rsc=0  sa=0  sb=0 
++sd=0  sca=0  scb=0 
++scc=0  sc=0  nf=2 
++scale=1  simM=1  dtemp=0 
++mos_dio_flag=1 
+.PARAM
++xwr     = '3.3E-8/scale '
++dmcg    = '3.0e-7/scale' 
++dmci    = '1.14e-7/scale'
++weffcj  = 'w/nf+(xwr)'   
++nf_odd  = 'nf-2*int(nf/2)'
++nf_even = '1-nf_odd'     
++a_unit  = 'sd*weffcj'    
++p_unit  = '2*(sd+weffcj)'
++a_sa_edge= '(dmcg+dmci)*weffcj'
++p_sa_edge= '2*((dmcg+dmci)+weffcj)'
++a_sb_edge= '(dmcg+dmci)*weffcj'
++p_sb_edge= '2*((dmcg+dmci)+weffcj)'
++ad      = 'nf_odd*(a_unit*((nf+1)/2-1)+a_sb_edge)+nf_even*(a_unit*nf/2)'
++as      = 'nf_odd*(a_unit*((nf+1)/2-1)+a_sa_edge)+nf_even*(a_unit*(nf/2-1)+a_sa_edge+a_sb_edge)'
++pd      = 'nf_odd*(p_unit*((nf+1)/2-1)+p_sb_edge)+nf_even*(p_unit*nf/2)'
++ps      = 'nf_odd*(p_unit*((nf+1)/2-1)+p_sa_edge)+nf_even*(p_unit*(nf/2-1)+p_sa_edge+p_sb_edge)'
++nrd     = 'dmcg/nf/weffcj'
++nrs     = 'dmcg/nf/weffcj'
++wef     = 'w*scale/nf'   
++lef     = 'l*scale'      
+.PARAM
