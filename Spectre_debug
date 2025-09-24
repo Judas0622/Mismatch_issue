@@ -1,0 +1,341 @@
+inline subckt mn_5_dep (d g s b dnw sub)
+parameters
++l        = 1e-6           w        = 1e-6           rdc      = 0             
++rsc      = 0              sa       = 3e-6           sb       = 3e-6          
++sd       = 0              sca      = 0              scb      = 0             
++scc      = 0              sc       = 0              nf       = 1             
++mismod   = mismatchflag_mos_dep_5 simM     = 1              scale   = 1	dtemp    = 0        
+
+parameters r_cont   = 20.5           rsh      = 8.0           
+parameters xwr      = 3.3e-8/scale 
++dmcg     = 1.9e-7/scale 
++dmci     = 1.14e-7/scale
++weffcj   = w/nf+(xwr)    
++nf_odd   = nf-2*int(nf/2)
++nf_even  = 1-nf_odd      
++a_unit   = sd*weffcj     
++p_unit   = 2*(sd+weffcj) 
++a_sa_edge = (dmcg+dmci)*weffcj
++p_sa_edge = 2*((dmcg+dmci)+weffcj)
++a_sb_edge = (dmcg+dmci)*weffcj
++p_sb_edge = 2*((dmcg+dmci)+weffcj)
++ad       = nf_odd*(a_unit*((nf+1)/2-1)+a_sb_edge)+nf_even*(a_unit*nf/2)
++as       = nf_odd*(a_unit*((nf+1)/2-1)+a_sa_edge)+nf_even*(a_unit*(nf/2-1)+a_sa_edge+a_sb_edge)
++pd       = nf_odd*(p_unit*((nf+1)/2-1)+p_sb_edge)+nf_even*(p_unit*nf/2)
++ps       = nf_odd*(p_unit*((nf+1)/2-1)+p_sa_edge)+nf_even*(p_unit*(nf/2-1)+p_sa_edge+p_sb_edge)
++cont_sti = 0.18e-6/scale
++cont_size = 0.12e-6/scale
++cont_cont = 0.16e-6/scale
++cont_num = max(int(((w/nf-cont_sti*2-cont_size)/(cont_size+cont_cont))+1),1)
++nrdcon   = r_cont/cont_num/rsh
++nrscon   = r_cont/cont_num/rsh
++nrd      = dmcg/weffcj/nf+nrdcon*r_cont_flag
++nrs      = dmcg/weffcj/nf+nrscon*r_cont_flag
++lef      = l*scale      
++wef      = w*scale/nf   
+// ******************* local corner(mismatch) parameters ********************
+parameters geo_fac  = 1/sqrt(wef*lef*nf*simM)
++atoxe_mn_5_dep = 1.975e-16
++dtoxe_mn_5_dep_mis = 0+atoxe_mn_5_dep*geo_fac*sigma_mis_toxe_mn_5_dep*mismod*(1-totalflag_mos_dep_5)
++axl_mn_5_dep = 1.69595e-16
++dxl_mn_5_dep_mis = 0+axl_mn_5_dep*geo_fac*sigma_mis_xl_mn_5_dep*mismod*(1-totalflag_mos_dep_5)
++axw_mn_5_dep = 1.36845e-16
++dxw_mn_5_dep_mis = 0+axw_mn_5_dep*geo_fac*sigma_mis_xw_mn_5_dep*mismod*(1-totalflag_mos_dep_5)
++avth0_mn_5_dep = 2.0e-8  
++dvth0_mn_5_dep_mis = 0+avth0_mn_5_dep*geo_fac*sigma_mis_vth0_mn_5_dep*mismod*(1-totalflag_mos_dep_5)
++au0_mn_5_dep = 5.3e-11   
++du0_mn_5_dep_mis = 0+au0_mn_5_dep*geo_fac*sigma_mis_u0_mn_5_dep*mismod*(1-totalflag_mos_dep_5)
++avoff_mn_5_dep = 1.0e-10 
++dvoff_mn_5_dep_mis = 0+avoff_mn_5_dep*geo_fac*sigma_mis_voff_mn_5_dep*mismod*(1-totalflag_mos_dep_5)
+
+// ********************** global corner parameters ***********************
+parameters gr0      = 0.992          gr1      = -0.012         gr2      = 0.008         
++gr3      = -0.095        
++gl_ratio = max(min(1,gr0+gr1/(lef*1e6)+gr2/(wef*1e6)+gr3/(lef*wef*1e12)),0)
++gr0_a    = 0.984          gr1_a    = 0              gr2_a    = 0             
++gr3_a    = 0             
++du0_ratio = max(min(1,gr0_a+gr1_a/(lef*1e6)+gr2_a/(wef*1e6)+gr3_a/(lef*wef*1e12)),0)
++dtox_mn_5_dep_ckt = (dtox_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dtox_mn_5_dep*totalflag_mos_dep_5
++dxl_mn_5_dep_ckt = (dxl_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dxl_mn_5_dep*totalflag_mos_dep_5
++dxw_mn_5_dep_ckt = (dxw_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dxw_mn_5_dep*totalflag_mos_dep_5
++dvth0_mn_5_dep_ckt = (dvth0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dvth0_mn_5_dep*totalflag_mos_dep_5
++dwvth0_mn_5_dep_ckt = (dwvth0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dwvth0_mn_5_dep*totalflag_mos_dep_5
++dlvth0_mn_5_dep_ckt = (dlvth0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dlvth0_mn_5_dep*totalflag_mos_dep_5
++dpvth0_mn_5_dep_ckt = (dpvth0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpvth0_mn_5_dep*totalflag_mos_dep_5
++du0_mn_5_dep_ckt = (du0_mn_5_dep*du0_ratio)*(1-totalflag_mos_dep_5)+du0_mn_5_dep*totalflag_mos_dep_5
++dlu0_mn_5_dep_ckt = (dlu0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dlu0_mn_5_dep*totalflag_mos_dep_5
++dpu0_mn_5_dep_ckt = (dpu0_mn_5_dep*du0_ratio)*(1-totalflag_mos_dep_5)+dpu0_mn_5_dep*totalflag_mos_dep_5
++dlub_mn_5_dep_ckt = (dlub_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dlub_mn_5_dep*totalflag_mos_dep_5
++dvsat_mn_5_dep_ckt = (dvsat_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dvsat_mn_5_dep*totalflag_mos_dep_5
++dpvsat_mn_5_dep_ckt = (dpvsat_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpvsat_mn_5_dep*totalflag_mos_dep_5
++dla0_mn_5_dep_ckt = (dla0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dla0_mn_5_dep*totalflag_mos_dep_5
++dpa0_mn_5_dep_ckt = (dpa0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpa0_mn_5_dep*totalflag_mos_dep_5
++dags_mn_5_dep_ckt = (dags_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dags_mn_5_dep*totalflag_mos_dep_5
++dwags_mn_5_dep_ckt = (dwags_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dwags_mn_5_dep*totalflag_mos_dep_5
++dpb0_mn_5_dep_ckt = (dpb0_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpb0_mn_5_dep*totalflag_mos_dep_5
++dpketa_mn_5_dep_ckt = (dpketa_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpketa_mn_5_dep*totalflag_mos_dep_5
++dvoff_mn_5_dep_ckt = (dvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dvoff_mn_5_dep*totalflag_mos_dep_5
++dwvoff_mn_5_dep_ckt = (dwvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dwvoff_mn_5_dep*totalflag_mos_dep_5
++dlvoff_mn_5_dep_ckt = (dlvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dlvoff_mn_5_dep*totalflag_mos_dep_5
++dpvoff_mn_5_dep_ckt = (dpvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpvoff_mn_5_dep*totalflag_mos_dep_5
++dpdiblc2_mn_5_dep_ckt = (dpdiblc2_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dpdiblc2_mn_5_dep*totalflag_mos_dep_5
++dwpdiblc2_mn_5_dep_ckt = (dwpdiblc2_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dwpdiblc2_mn_5_dep*totalflag_mos_dep_5
++dppdiblc2_mn_5_dep_ckt = (dppdiblc2_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dppdiblc2_mn_5_dep*totalflag_mos_dep_5
++dcgso_mn_5_dep_ckt = (dcgso_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcgso_mn_5_dep*totalflag_mos_dep_5
++dcgdo_mn_5_dep_ckt = (dcgdo_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcgdo_mn_5_dep*totalflag_mos_dep_5
++dcf_mn_5_dep_ckt = (dcf_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcf_mn_5_dep*totalflag_mos_dep_5
++dcgsl_mn_5_dep_ckt = (dcgsl_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcgsl_mn_5_dep*totalflag_mos_dep_5
++dcgdl_mn_5_dep_ckt = (dcgdl_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcgdl_mn_5_dep*totalflag_mos_dep_5
++dcjs_mn_5_dep_ckt = (dcjs_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcjs_mn_5_dep*totalflag_mos_dep_5
++dcjd_mn_5_dep_ckt = (dcjd_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcjd_mn_5_dep*totalflag_mos_dep_5
++dcjsws_mn_5_dep_ckt = (dcjsws_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcjsws_mn_5_dep*totalflag_mos_dep_5
++dcjswd_mn_5_dep_ckt = (dcjswd_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcjswd_mn_5_dep*totalflag_mos_dep_5
++dcjswgs_mn_5_dep_ckt = (dcjswgs_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcjswgs_mn_5_dep*totalflag_mos_dep_5
++dcjswgd_mn_5_dep_ckt = (dcjswgd_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dcjswgd_mn_5_dep*totalflag_mos_dep_5
++dlua1_mn_5_dep_ckt = (dlua1_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dlua1_mn_5_dep*totalflag_mos_dep_5
++dtvoff_mn_5_dep_ckt = (dtvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dtvoff_mn_5_dep*totalflag_mos_dep_5
++dwtvoff_mn_5_dep_ckt = (dwtvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dwtvoff_mn_5_dep*totalflag_mos_dep_5
++dtlvoff_mn_5_dep_ckt = (dtlvoff_mn_5_dep*gl_ratio)*(1-totalflag_mos_dep_5)+dtlvoff_mn_5_dep*totalflag_mos_dep_5
+//****************************************************************
++sp_poly_dnw = 0.38u  
++dnw_l_cx1= 0.304u  
++dnw_l_cx2= 7.349u  
++dnw_w_edge= 7.349u  
++dnw_l=nf*lef+(nf-1)*(sp_poly_dnw)+2*(dnw_l_cx1+dnw_l_cx2)
++dnw_w=wef+2*dnw_w_edge
++area_dnw=dnw_w*dnw_l  pj_dnw=2*(dnw_w+dnw_l)
+//****************************************************************
++sp_poly_pw = 0.38u  
++pw_l_cx1= 0.304u  
++pw_l_cx2= 3.849u  
++pw_w_edge= 3.849u  
++pw_l=nf*lef+(nf-1)*(sp_poly_pw)+2*(pw_l_cx1+pw_l_cx2)
++pw_w=wef+2*pw_w_edge
++area_pw=pw_w*pw_l  pj_pw=2*(pw_w+pw_l)
+//****************************************************************
+.if (mos_dio_flag==1) {
+d1 b dnw pwdnwdio_5_main  area=area_pw  pj=pj_pw m=simM
+d2 sub dnw dnwpsubdio_main  area=area_dnw pj=pj_dnw m=simM
+}
+
+model pwdnwdio_5_main diode
+//****************************************************************
+//*                        Flag Parameters
+//****************************************************************
++level   = 3.0            
+//****************************************************************
+//*                      dc model parameter
+//****************************************************************
++ibv     = 27.7778         ik      = 1.0e20          ikr     = 27777.8        
++is      = 1.1e-6    jsw     = 8.0e-13   n       = 1.05    
++rs      = 1.2e-10  vb      = 13.24           area    = 3.6e-8         
++pj      = 0.00144         jtun    = 7.5e-6          jtunsw  = 3.1e-11        
++ntun    = 88.0           
+//****************************************************************
+//*                     capacitance parameter
+//****************************************************************
++cj      = 2.53e-4   pb      = 0.77            mj      = 0.434          
++fc      = 0               fcs     = 0               cjsw    = 5.25e-10
++mjsw    = 0.229           php     = 0.507          
+//****************************************************************
+//*                    temperature coefficient
+//****************************************************************
++tlev    = 1.0             tlevc   = 1.0             tref    = 25.0           
++eg      = 1.13            keg     = 0.49            xti     = 3.0            
++cta     = 0.0024          ctp     = 7.8e-4          tcv     = -6.6e-4        
++tpb     = 0.00181         tphp    = 0.00105         trs     = 0.003          
++xtitun  = 3.0            
+
+MODEL dnwpsubdio_main diode
+//****************************************************************
+//*                        Flag Parameters
+//****************************************************************
++level   = 3.0            
+//****************************************************************
+//*                      DC Model Parameter
+//****************************************************************
++ibv     = 0.001           ik      = 1.0E20          ikr     = 1.0E10         
++is      = 1.0E-7          jsw     = 1.11828e-12     n       = 0.90905       
++rs      = 3.0E-10         vb      = 60         area    = 8.1E-9         
++pj      = 0.00324        
+//****************************************************************
+//*                     Capacitance Parameter
+//****************************************************************
++cj      = 0.00119036     pb      = 0.56            mj      = 0.06           
++fc      = 0.5             fcs     = 0.5             mjsw    = 0.273536       
++php     = 0.56            xoi     = 7.0E-7          xom     = 1.0E-6         
+//****************************************************************
+//*                    Temperature coefficient
+//****************************************************************
++tlev    = 1.0             tlevc   = 1.0             tref    = 25.0           
++eg      = 1.17            gap1    = 7.02E-4         gap2    = 1108.0         
++xti     = 3.0             cta     = 0.0015267       ctp     = 0.0015267      
++tcv     = -7.14342E-4     tm1     = 0               tm2     = 0              
++tpb     = 0.001753        tphp    = 0.001053        trs     = 0.0052659      
++ttt1    = 0               ttt2    = 0              
+//****************************************************************
+//*                            Others
+//****************************************************************
++cjp     = 5.27722e-10
+
+mn_5_dep d g s b dnw sub mn_5_dep l = l w = w ad = ad as = as pd = pd ps = ps nrd = nrd nrs = nrs rdc = rdc rsc = rsc sa = sa sb = sb sd = sd sca = sca scb = scb scc = scc sc = sc nf = nf m = simM trise = dtemp 
+model mn_5_dep bsim4 {
+1: 
+// *model selector
++version = 4.62                binunit = 1.0                 paramchk = 1.0               
++mobmod = 0                    mtrlmod = 0                   capmod = 2.0                 
++cvchargemod = 0               rdsmod = 0                    igcmod = 0                   
++igbmod = 0                    rbodymod = 0                  trnqsmod = 0                 
++acnqsmod = 0                  diomod = 1.0                  tempmod = 0                  
++permod = 1.0                  geomod = 0                    rgeomod = 1.0                
++rgatemod = 0                  wpemod = 1.0                  fnoimod = 1.0                
++tnoimod = 1.0                 xpart = 1.0                   type = n                     
+// *process parameter
++epsrox = 3.9                  toxe = 1.32e-8 + dtox_mn_5_dep_ckt+dtoxe_mn_5_dep_mis toxp = 1.3e-8 + dtox_mn_5_dep_ckt
++toxm = 1.32e-8                toxref = 1.32e-8 + dtox_mn_5_dep_ckt xj = 1.5e-7                  
++ndep = 2.7e17                 ngate = 1.5e20                nsd = 1.0e20                 
++rsh = 8.0                    
+// *dw and dl parameter
++wint = 0                      wl = 4.72031e-14              wln = 1.0                    
++ww = -1.27e-14                wwn = 1.0                     wwl = -5.1e-20               
++lint = -1.0e-8                ll = -3.1e-14                 lln = 1.0                    
++lw = -1.047e-13               lwn = 1.0                     lwl = 1.6e-19                
++llc = 0                       lwc = 0                       lwlc = 0                     
++wlc = 0                       wwc = 0                       wwlc = 0                     
++dwg = 0                       ldwg = 0                      pdwg = 0                     
++dwb = 0                       xl = -3.8e-8 + dxl_mn_5_dep_ckt+dxl_mn_5_dep_mis xw = 3.3e-8 + dxw_mn_5_dep_ckt+dxw_mn_5_dep_mis
++dlc = -7.9e-8                 dwc = 0                       lmin = 2.0e-6                
++lmax = 5.001e-5               wmin = 1.0e-6                 wmax = 5.001e-4               
+// *basic model parameters
++vth0 = -1.16162 + dvth0_mn_5_dep_ckt+dvth0_mn_5_dep_mis lvth0 = 1.0012 + dlvth0_mn_5_dep_ckt wvth0 = -0.1466 + dwvth0_mn_5_dep_ckt
++pvth0 = -0.3556 + dpvth0_mn_5_dep_ckt phin = -0.12                  k1 = 1.588                   
++k2 = -0.237469                lk2 = 0.10404                 wk2 = 0.0167956              
++pk2 = 0.0169117               k3 = 6.9                      lk3 = -8.0                   
++wk3 = 3.49                    pk3 = 3.471                   k3b = 0.3                    
++lk3b = 8.3205e-5              wk3b = 0                      pk3b = 1.83909e-10           
++w0 = 0                        lpe0 = -9.8e-7                llpe0 = 9.4e-8               
++wlpe0 = -1.50952e-8           plpe0 = 3.39721e-7            lpeb = -4.8615e-7            
++llpeb = 1.64e-7               wlpeb = 5.0e-8                plpeb = -7.0e-8              
++vbm = -3.0                    dvtp0 = 2.3641e-5             dvtp1 = 0                    
++dvt0 = 2.2                    dvt1 = 0.53                   pdvt1 = 0                    
++dvt2 = -0.032                 dvt0w = 0                     dvt1w = 300000               
++dvt2w = -0.032                u0 = 0.033795 + du0_mn_5_dep_ckt+du0_mn_5_dep_mis lu0 = 0.00792154 + dlu0_mn_5_dep_ckt
++wu0 = -0.0021                 pu0 = -0.00272715 + dpu0_mn_5_dep_ckt ua = -4.46879e-10            
++lua = -1.44694e-9             wua = 3.67467e-10             pua = -1.03608e-10           
++ub = 2.83266e-18              lub = -5.06975e-20+dlub_mn_5_dep_ckt wub = -8.83406e-19           
++pub = 7.66351e-19             uc = 1.45476e-10              luc = -1.65142e-10           
++wuc = -2.11648e-11            puc = 1.22704e-11             ud = 8.01346e15              
++lud = -4.87738e15             wud = 5.05319e15              pud = -5.51888e15            
++eu = 1.67                     vsat = 171945 + dvsat_mn_5_dep_ckt lvsat = -155500              
++wvsat = 7200.0                pvsat = 9260.0 + dpvsat_mn_5_dep_ckt a0 = 1.207                   
++la0 = -0.996+dla0_mn_5_dep_ckt wa0 = -0.1705                 pa0 = 0.957+dpa0_mn_5_dep_ckt
++ags = 0.153 + dags_mn_5_dep_ckt lags = -0.247882              wags = 0 + dwags_mn_5_dep_ckt
++pags = -0.0165                b0 = 8.5e-8                   lb0 = -1.0e-6                
++wb0 = 4.4e-8                  pb0 = 1.546e-7+dpb0_mn_5_dep_ckt b1 = 0                       
++pb1 = 0                       keta = 0.005569               lketa = 0.086365             
++wketa = 0.0027136             pketa = -0.016523+dpketa_mn_5_dep_ckt a1 = 0                       
++a2 = 1.0                      voff = -0.02541+dvoff_mn_5_dep_ckt+dvoff_mn_5_dep_mis lvoff = -9.95507e-5+dlvoff_mn_5_dep_ckt
++wvoff = -0.00461+dwvoff_mn_5_dep_ckt pvoff = 0.0071+dpvoff_mn_5_dep_ckt voffl = -1.22e-8             
++minv = 4.36575                lminv = -0.530276             wminv = 0.0296509            
++pminv = 0.234                 nfactor = 1.28045             lnfactor = 0.236             
++wnfactor = 0.087704           pnfactor = -0.241             eta0 = 0.08                  
++leta0 = 0                     weta0 = 0                     peta0 = 0                    
++etab = 0                      dsub = 0.56                   cit = -1.0e-4                
++lcit = 0                      wcit = 9.99e-5                pcit = 0                     
++cdsc = 2.4e-4                 cdscb = 0                     cdscd = 0                    
++pclm = 0.2                    lpclm = 4.0                   wpclm = 0.0111115            
++ppclm = 0                     pdiblc1 = 0                   pdiblc2 = 0.00285+dpdiblc2_mn_5_dep_ckt
++lpdiblc2 = 0.00194            wpdiblc2 = 8.96e-4+dwpdiblc2_mn_5_dep_ckt ppdiblc2 = -0.00144+dppdiblc2_mn_5_dep_ckt
++pdiblcb = 0.5                 lpdiblcb = 0                  wpdiblcb = 0                 
++ppdiblcb = 0                  drout = 0.56                  pscbe1 = 5.69e8              
++pscbe2 = 4.5e-5               pvag = 15.0                   lpvag = 0                    
++wpvag = 0                     delta = 0.021                 fprout = 0                   
++pdits = 0                     pditsl = 0                    pditsd = 0                   
++lambda = 0                    vtl = 0                       lc = 5.0e-9                  
++xn = 3.0                     
+// *parameters for asymmetric and bias-dependent rds model
++rdsw = 1180.83                lrdsw = 127.103               wrdsw = 70.3216              
++prdsw = -208.498              rdswmin = 0                   rdw = 100.0                  
++rdwmin = 0                    rsw = 100.0                   rswmin = 0                   
++prwb = 0                      prwg = 0.0111                 wr = 1.0                     
+// *impact ionization current model parameters
++alpha0 = 0                    alpha1 = 0.86643              lalpha1 = -0.0304293         
++walpha1 = 0.1035              palpha1 = -0.05235            beta0 = 23.5                 
++lbeta0 = -1.8                 wbeta0 = 9.879                pbeta0 = -10.2424            
+// *gate dielectric tunneling current
++aigbacc = 0.1136              bigbacc = 0.00171             cigbacc = 0.075              
++nigbacc = 1.0                 aigbinv = 0.1111              bigbinv = 9.49e-4            
++cigbinv = 0.006               eigbinv = 1.1                 nigbinv = 3.0                
++aigc = 0.1136                 bigc = 0.00171                cigc = 0.075                 
++aigsd = 0.1136                bigsd = 0.00171               cigsd = 0.075                
++nigc = 1.0                    poxedge = 1.0                 pigcd = 1.0                  
++ntox = 1.0                   
+// *gidl effect parameters
++agidl = 1.5e-8                lagidl = 0                    wagidl = 1.0e-8              
++pagidl = 3.0e-8               bgidl = 3.0e9                 cgidl = 0.5                  
++egidl = 0.8                  
+// *flicker and thermal noise model parameters
++noia = 5.9533e42              noib = 1.0296e26              noic = 8.75                  
++em = 4.1e7                    ef = 0.95                     lintnoi = -1.8424e-7         
++ntnoi = 1.0                  
+// *capacitance parameter
++cgso = 9.2e-11 + dcgso_mn_5_dep_ckt cgdo = 9.2e-11 + dcgdo_mn_5_dep_ckt cgbo = 0                     
++ckappas = 0.1                 ckappad = 0.1                 cf = 5.659e-11 + dcf_mn_5_dep_ckt
++clc = 1.0e-7                  cle = 0.6                     vfbcv = -1.0                 
++noff = 5.6912                 lnoff = -0.38                 voffcv = 0.64224             
++lvoffcv = -0.978763           acde = 0.42                   moin = 5.0                   
++cgsl = 9.3e-11 + dcgsl_mn_5_dep_ckt cgdl = 9.3e-11 + dcgdl_mn_5_dep_ckt
+// *souce/drain junction diode model parameter
++ijthsrev = 0.1                ijthsfwd = 0.1                xjbvs = 1.0                  
++bvs = 10.0                    bvd = 10.0                    jss = 3.8e-7                 
++jsd = 3.8e-7                  jsws = 1.6e-13                jswd = 1.6e-13               
++jswgs = 0                     jswgd = 0                     cjs = 9.65e-4 + dcjs_mn_5_dep_ckt
++cjd = 9.65e-4 + dcjd_mn_5_dep_ckt cjsws = 1.42e-10 + dcjsws_mn_5_dep_ckt cjswd = 1.42e-10 + dcjswd_mn_5_dep_ckt
++cjswgs = 2.6e-10 + dcjswgs_mn_5_dep_ckt cjswgd = 2.6e-10 + dcjswgd_mn_5_dep_ckt mjs = 0.3273                 
++mjd = 0.3273                  mjsws = 0.079                 mjswd = 0.079                
++mjswgs = 0.418                mjswgd = 0.418                pbs = 0.726                  
++pbd = 0.726                   pbsws = 0.337                 pbswd = 0.337                
++pbswgs = 0.82                 pbswgd = 0.82                 njs = 1.07                   
++njd = 1.07                    xtis = 3.0                    xtid = 3.0                   
++tpb = 0.00138                 tpbsw = 2.0e-5                tpbswg = 0.001               
++tcj = 9.7e-4                  tcjsw = 1.2e-4                tcjswg = 6.0e-4              
++jtss = 0                      jtsd = 0                      jtssws = 0                   
++jtsswd = 0                    jtsswgs = 3.0e-11             jtsswgd = 3.0e-11            
++njts = 20.0                   njtssw = 20.0                 njtsswg = 27.0               
++njtsd = 20.0                  njtsswd = 20.0                njtsswgd = 27.0              
++xtss = 0.02                   xtsd = 0.02                   xtssws = 0.02                
++xtsswd = 0.02                 xtsswgs = 0.7                 xtsswgd = 0.7                
++vtss = 10.0                   vtsd = 10.0                   vtssws = 10.0                
++vtsswd = 10.0                 vtsswgs = 8.0                 vtsswgd = 8.0                
++tnjtsswg = 0                  tnjtsswgd = 0                
+// *layout-dependent parasitics model parameter
++dmcg = 1.9e-7                 dmci = 1.14e-7                dmdg = 0                     
++dmcgt = 0                     xgw = 0                       xgl = 0                      
++ngcon = 1.0                  
+// *rf model related parameter
++xrcrg1 = 12.0                 xrcrg2 = 1.0                  rbpb = 50.0                  
++rbpd = 50.0                   rbps = 50.0                   rbdb = 50.0                  
++rbsb = 50.0                   gbmin = 1.0e-12              
+// *temperature coefficient
++tnom = 25.0                   ute = -1.15                   lute = -0.2676               
++wute = 0                      pute = 0                      kt1 = -0.6                   
++wkt1 = 0.0488                 pkt1 = -0.15                  kt1l = -1.485e-7             
++kt2 = -0.213                  lkt2 = 0                      wkt2 = 0                     
++pkt2 = 0                      ua1 = 1.9e-9                  lua1 = -1.104e-9+dlua1_mn_5_dep_ckt
++wua1 = -5.786e-10             pua1 = 8.16e-10               ub1 = -2.892e-18             
++lub1 = 3.87012e-18            wub1 = 1.0825e-18             pub1 = -1.629e-18            
++uc1 = 2.8e-11                 luc1 = 5.0e-11                wuc1 = 0                     
++puc1 = 5.0e-11                ud1 = 1.1112e15               pud1 = -1.0e16               
++at = 3350.0                   lat = -3000.0                 wat = 0                      
++pat = -83250.0                prt = 0                       tvoff = 0.0153+dtvoff_mn_5_dep_ckt
++ltvoff = 0.01456+dtlvoff_mn_5_dep_ckt wtvoff = 0.00222+dwtvoff_mn_5_dep_ckt ptvoff = -0.011              
+// *stress effect related parameter
++saref = 3.0e-6                sbref = 3.0e-6               
+// *well proximity effect model parameters
++scref = 2.0e-6               
+// *dc-mismatch
+// *others
++vgs_max  = 5.5            vgb_max  = 5.5            vds_max  = 5.5           
++vbs_max  = 5.5            vbd_max  = 5.5           
+}
+ends mn_5_dep
